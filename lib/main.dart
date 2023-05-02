@@ -10,27 +10,37 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          appBar: AppBar(
-            title: Text(nameApplication.toUpperCase()),
-            centerTitle: true,
-          ),
-          body: Center(
-            child: Container(
-              color: Colors.lightBlue,
-              width: 200,
-              height: 50,
-              child: Text(
-                excerciseDart,
-                maxLines: 2,
-                overflow: TextOverflow.clip,
-                style: const TextStyle(
-                  fontStyle: FontStyle.italic,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+            appBar: AppBar(
+              title: Text(nameApplication.toUpperCase()),
+              centerTitle: true,
             ),
-          ),
-        ));
+            body: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Text 1"),
+                  const Text('Text 2'),
+                  const Text('Text 3'),
+                  const Text('Text 4'),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text("Text 1"),
+                      Text("Text 2"),
+                    ],
+                  )
+                ],
+              ),
+            )));
   }
+  // Catatan
+/*
+  Column adalah sebuah container yang dimana widgetnya itu kebawah
+  Row adalah sebuah container yang dimana widgetnya itu ke samping
+  crossAxisAlignment adalah sebuah property yang dimana posisi widgetnya secara horizontal
+  mainAxisAlignment adalah sebuah property yang dimana posisi widgetnya secara vertical
+ */
 }
