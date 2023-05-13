@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  String nameApplication = "Aplikasi hello world";
-  String excerciseDart = "Saya sedang melatih kemampuan dart saya";
+  String nameApplication = "Latihan Container";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,27 +13,26 @@ class MyApp extends StatelessWidget {
               title: Text(nameApplication.toUpperCase()),
               centerTitle: true,
             ),
-            body: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Text 1"),
-                  const Text('Text 2'),
-                  const Text('Text 3'),
-                  const Text('Text 4'),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Text("Text 1"),
-                      Text("Text 2"),
-                    ],
-                  )
-                ],
+            body: Container(
+              color: Colors.red,margin: const EdgeInsets.all(10),
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(10, 15, 20, 25),
+                padding: const EdgeInsets.only(bottom: 20,top: 20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                   Colors.amber,
+                   Colors.blue,
+                ])),
+                // color: Colors.lightBlue,
+                // margin: const EdgeInsets.all(10),
               ),
-            )));
+            )
+        )
+    );
   }
   // Catatan
 /*
