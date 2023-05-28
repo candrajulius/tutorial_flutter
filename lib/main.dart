@@ -1,44 +1,43 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  String nameApplication = "Latihan Container";
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String title = "Anonymous Method";
+  String message = "Ini adalah sebuah text";
+  void clickButton(){
+    setState(() {
+      message = "tombol telah ditekan oleh anda";
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) =>
+      MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            appBar: AppBar(
-              title: Text(nameApplication.toUpperCase()),
-              centerTitle: true,
-            ),
-            body: Container(
-              color: Colors.red,margin: const EdgeInsets.all(10),
-              child: Container(
-                margin: const EdgeInsets.fromLTRB(10, 15, 20, 25),
-                padding: const EdgeInsets.only(bottom: 20,top: 20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: const LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                   Colors.amber,
-                   Colors.blue,
-                ])),
-                // color: Colors.lightBlue,
-                // margin: const EdgeInsets.all(10),
+          appBar: AppBar(
+            title: Text(title.toUpperCase()),
+          ),
+          body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:  <Widget>[
+                  Text(message),
+                  ElevatedButton(onPressed: clickButton,
+                      child: const Text('Tekan saya'))
+                ],
               ),
-            )
-        )
-    );
-  }
-  // Catatan
-/*
-  Column adalah sebuah container yang dimana widgetnya itu kebawah
-  Row adalah sebuah container yang dimana widgetnya itu ke samping
-  crossAxisAlignment adalah sebuah property yang dimana posisi widgetnya secara horizontal
-  mainAxisAlignment adalah sebuah property yang dimana posisi widgetnya secara vertical
- */
+            ),
+          )
+      );
 }
+// Kesimpulan
+
