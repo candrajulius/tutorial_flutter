@@ -40,4 +40,9 @@ class _MyAppState extends State<MyApp> {
       );
 }
 // Kesimpulan
-
+/*
+ Stateful Widget adalah sebuah widget yang memiliki sebuah state
+ Stateless Widget adalah sebuah widget yang tidak memiliki sebuah state
+ State adalah sebuah perubahan yang dilakukan pada widget tersebut
+ Widget adalah sebuah komponen yang ada dalam android
+ */
