@@ -10,44 +10,63 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String title = "Latihan TextStyle";
+  List<Widget> widgets = [];
+  int counter = 1;
+
+  void addData() {
+    setState(() {
+      widgets.add(Text("Data ke " + counter.toString(),style: TextStyle(fontSize: counter.toDouble()),));
+      counter++;
+    });
+  }
+
+  void removeData() {
+    setState(() {
+      widgets.removeLast();
+      counter--;
+    });
+  }
+
+  String title = "Latihan List dan ListView";
   @override
-  Widget build(BuildContext context) =>
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+  Widget build(BuildContext context) => MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
           appBar: AppBar(
             title: Text(title),
           ),
-          body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:  const <Widget>[
-                  Text('Ini adalah text',style: TextStyle(
-                      fontFamily: "Prompt",
-                      fontSize: 30,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.blue, decorationThickness: 10,
-                  decorationStyle: TextDecorationStyle.dotted),
+          body: ListView(
+            padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  ElevatedButton(
+                    onPressed: addData,
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    child: const Text(
+                      "Tambah Data",
+                    ),
                   ),
-                  ElevatedButton(onPressed: null,
-                      child: Text('Tekan saya'))
+                  ElevatedButton(
+                    onPressed: removeData,
+                    child: const Text("Hapus Data"),
+                  ),
                 ],
               ),
-            ),
-          )
-      );
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: widgets,
+                ),
+              )
+            ],
+          )));
 }
 // Kesimpulan
 /*
- Decoration digunakan untuk membuat dekorasi pada TextStyle
- DecorationColor digunakan untuk memberikan warna pada dekorasi teks
- DecorationStyle digunakan memberikan dekorasi style pada teks
-        => lineThrough = berada ditengah teks
-        => overline = berada di atas teks
-        => underline = berada di bawah teks
-        => decorationThickness = Memberikan ketebalan decoration
-        => dashed = untuk membuat style style putus-putus
-        => wavy = untuk membuat style style bergelombang
-        => dotted = untuk membuat style style titik
+  ListView merupakan sebuah list yang menampung widget.
+  Dalam listview anda bisa menscroll widget tersebut
+  List diguanakan untuk menampung banyaknya widget
  */
