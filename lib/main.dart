@@ -10,29 +10,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String title = "Anonymous Method";
-  String message = "Ini adalah sebuah text";
-  void clickButton(){
-    setState(() {
-      message = "tombol telah ditekan oleh anda";
-    });
-  }
-
+  String title = "Latihan TextStyle";
   @override
   Widget build(BuildContext context) =>
       MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: Text(title.toUpperCase()),
+            title: Text(title),
           ),
           body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children:  <Widget>[
-                  Text(message),
-                  ElevatedButton(onPressed: clickButton,
-                      child: const Text('Tekan saya'))
+                children:  const <Widget>[
+                  Text('Ini adalah text',style: TextStyle(
+                      fontFamily: "Prompt",
+                      fontSize: 30,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.blue, decorationThickness: 10,
+                  decorationStyle: TextDecorationStyle.dotted),
+                  ),
+                  ElevatedButton(onPressed: null,
+                      child: Text('Tekan saya'))
                 ],
               ),
             ),
@@ -41,8 +40,14 @@ class _MyAppState extends State<MyApp> {
 }
 // Kesimpulan
 /*
- Stateful Widget adalah sebuah widget yang memiliki sebuah state
- Stateless Widget adalah sebuah widget yang tidak memiliki sebuah state
- State adalah sebuah perubahan yang dilakukan pada widget tersebut
- Widget adalah sebuah komponen yang ada dalam android
+ Decoration digunakan untuk membuat dekorasi pada TextStyle
+ DecorationColor digunakan untuk memberikan warna pada dekorasi teks
+ DecorationStyle digunakan memberikan dekorasi style pada teks
+        => lineThrough = berada ditengah teks
+        => overline = berada di atas teks
+        => underline = berada di bawah teks
+        => decorationThickness = Memberikan ketebalan decoration
+        => dashed = untuk membuat style style putus-putus
+        => wavy = untuk membuat style style bergelombang
+        => dotted = untuk membuat style style titik
  */
